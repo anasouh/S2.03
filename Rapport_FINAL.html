@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Belguebli Rayane, Ouhdda Anas, Desmee Nathan" />
+  <title>Rapport S2.03</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="css/style.css" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Rapport S2.03</h1>
+<p class="author">Belguebli Rayane, Ouhdda Anas, Desmee Nathan</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#semaines-6-7"><span class="toc-section-number">1</span> <strong>Semaines 6 &amp; 7</strong></a>
+<ul>
+<li><a href="#que-signifie-64-bit-dans-debian-64-bit"><span class="toc-section-number">1.1</span> <strong>Que signifie “64-bit” dans “Debian 64-bit” ?</strong></a></li>
+<li><a href="#quelle-est-la-configuration-réseau-utilisée-par-défaut"><span class="toc-section-number">1.2</span> <strong>Quelle est la configuration réseau utilisée par défaut ?</strong></a></li>
+<li><a href="#quel-est-le-nom-du-fichier-xml-contenant-la-configuration-de-votre-machine"><span class="toc-section-number">1.3</span> <strong>Quel est le nom du fichier XML contenant la configuration de votre machine ?</strong></a></li>
+<li><a href="#sauriez-vous-le-modifier-directement-ce-fichier-pour-mettre-2-processeurs-à-votre-machine-faites-le."><span class="toc-section-number">1.4</span> <strong>Sauriez-vous le modifier directement ce fichier pour mettre 2 processeurs à votre machine ? Faites-le.</strong></a></li>
+<li><a href="#quest-ce-quun-fichier-iso-bootable"><span class="toc-section-number">1.5</span> <strong>Qu’est-ce qu’un fichier iso bootable ?</strong></a></li>
+<li><a href="#quest-ce-que-mate-gnome"><span class="toc-section-number">1.6</span> <strong>Qu’est-ce que MATE ? GNOME ?</strong></a></li>
+<li><a href="#quest-ce-quun-serveur-web"><span class="toc-section-number">1.7</span> <strong>Qu’est-ce qu’un serveur web ?</strong></a></li>
+<li><a href="#quest-ce-quun-serveur-ssh"><span class="toc-section-number">1.8</span> <strong>Qu’est-ce qu’un serveur ssh ?</strong></a></li>
+<li><a href="#quest-ce-quun-serveur-mandataire"><span class="toc-section-number">1.9</span> <strong>Qu’est-ce qu’un serveur mandataire ?</strong></a></li>
+<li><a href="#comment-peut-on-savoir-à-quels-groupes-appartient-lutilisateur-user"><span class="toc-section-number">1.10</span> <strong>Comment peut-on savoir à quels groupes appartient l’utilisateur “user” ?</strong></a></li>
+<li><a href="#quel-est-la-version-du-noyau-linux-utilisé-par-votre-vm"><span class="toc-section-number">1.11</span> <strong>Quel est la version du noyau Linux utilisé par votre VM ?</strong></a></li>
+<li><a href="#à-quoi-servent-les-suppléments-invités-donner-2-principales-raisons-de-les-installer."><span class="toc-section-number">1.12</span> <strong>À quoi servent les suppléments invités ? Donner 2 principales raisons de les installer.</strong></a></li>
+<li><a href="#à-quoi-sert-la-commande-mount-dans-notre-cas-de-figure-et-dans-le-cas-général"><span class="toc-section-number">1.13</span> <strong>À quoi sert la commande mount (dans notre cas de figure et dans le cas général) ?</strong></a></li>
+<li><a href="#compte-rendu-de-linstallation-machine-virtuel"><span class="toc-section-number">1.14</span> <strong>Compte rendu de l’installation machine virtuel</strong></a>
+<ul>
+<li><a href="#création-de-la-machine-virtuelle"><span class="toc-section-number">1.14.1</span> <strong>Création de la machine virtuelle</strong></a></li>
+<li><a href="#installation-du-systeme-dexploitation-debian-11"><span class="toc-section-number">1.14.2</span> <strong>Installation du systeme d’exploitation Debian 11</strong></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#semaine-9"><span class="toc-section-number">2</span> <strong>Semaine 9</strong></a>
+<ul>
+<li><a href="#quest-ce-que-le-projet-debian-doù-vient-le-nom-debian"><span class="toc-section-number">2.1</span> <strong>Qu’est-ce que le Projet Debian ? D’où vient le nom Debian ?</strong></a></li>
+<li><a href="#il-existe-3-durées-de-prise-en-charge-support-de-ces-versions-la-durée-minimale-la-durée-en-support-long-terme-lts-et-la-durée-en-support-long-terme-étendue-elts.-quelle-sont-les-durées-de-ces-prises-en-charge"><span class="toc-section-number">2.2</span> <strong>Il existe 3 durées de prise en charge (support) de ces versions : la durée minimale, la durée en support long terme (LTS) et la durée en support long terme étendue (ELTS). Quelle sont les durées de ces prises en charge ?</strong></a></li>
+<li><a href="#pendant-combien-de-temps-les-mises-à-jour-de-sécurité-seront-elles-fournies"><span class="toc-section-number">2.3</span> <strong>Pendant combien de temps les mises à jour de sécurité seront-elles fournies ?</strong></a></li>
+<li><a href="#combien-de-version-au-minimum-sont-activement-maintenues-par-debian-donnez-leur-nom-générique-les-types-de-distribution."><span class="toc-section-number">2.4</span> <strong>Combien de version au minimum sont activement maintenues par Debian ? Donn+ez leur nom générique (= les types de distribution).</strong></a></li>
+<li><a href="#chaque-distribution-majeur-possède-un-nom-de-code-différent.-par-exemple-la-version-majeur-actuelle-debian-11-se-nomme-bullseye.-doù-viennent-les-noms-de-code-données-aux-distributions"><span class="toc-section-number">2.5</span> <strong>Chaque distribution majeur possède un nom de code différent. Par exemple, la version majeur actuelle (Debian 11) se nomme Bullseye. D’où viennent les noms de code données aux distributions ?</strong></a></li>
+<li><a href="#lun-des-atouts-de-debian-fut-le-nombre-darchitecture-officiellement-prises-en-charge.-combien-et-lesquelles-sont-prises-en-charge-par-la-version-bullseye"><span class="toc-section-number">2.6</span> <strong>L’un des atouts de Debian fut le nombre d’architecture officiellement prises en charge. Combien et lesquelles sont prises en charge par la version Bullseye ?</strong></a></li>
+<li><a href="#première-version-avec-un-nom-de-code-date-numéro-de-version"><span class="toc-section-number">2.7</span> <strong>Première version avec un nom de code (date, numéro de version…)</strong></a></li>
+<li><a href="#dernière-nom-de-code-attribué-dernier-nom-à-ce-jour-date-version"><span class="toc-section-number">2.8</span> <strong>Dernière nom de code attribué (dernier nom à ce jour, date, version…)</strong></a></li>
+<li><a href="#installation-préconfigurée-de-debian-11.6"><span class="toc-section-number">2.9</span> <strong>Installation préconfigurée de <span>Debian 11.6</span></strong></a>
+<ul>
+<li><a href="#préparation-de-la-machine-virtuelle"><span class="toc-section-number">2.9.1</span> <strong>Préparation de la machine virtuelle</strong></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#semaine-10-11"><span class="toc-section-number">3</span> <strong>Semaine 10 &amp; 11</strong></a>
+<ul>
+<li><a href="#quest-ce-que-le-logiciel-git-gui-comment-se-lance-t-il"><span class="toc-section-number">3.1</span> <strong>Qu’est-ce que le logiciel git-gui ? Comment se lance-t-il ?</strong></a></li>
+<li><a href="#quest-ce-que-gitk"><span class="toc-section-number">3.2</span> <strong>Qu’est-ce que gitk ?</strong></a></li>
+<li><a href="#quelle-sera-la-ligne-de-commande-git-pour-utiliser-par-défaut-le-proxy-de-luniversité-sur-tous-vos-projets-git"><span class="toc-section-number">3.3</span> <strong>Quelle sera la ligne de commande git pour utiliser par défaut le proxy de l’université sur tous vos projets git ?</strong></a></li>
+<li><a href="#quest-ce-que-gitea"><span class="toc-section-number">3.4</span> <strong>Qu’est-ce que Gitea ?</strong></a></li>
+<li><a href="#installation-de-gitea"><span class="toc-section-number">3.5</span> <strong>Installation de Gitea</strong></a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="semaines-6-7"><span class="header-section-number">1</span> <strong>Semaines 6 &amp; 7</strong></h1>
+<h2 data-number="1.1" id="que-signifie-64-bit-dans-debian-64-bit"><span class="header-section-number">1.1</span> <strong>Que signifie “64-bit” dans “Debian 64-bit” ?</strong></h2>
+<ul>
+<li>Un processeur 64 bits est un processeur dont <strong>la largeur des registres est de 64 bits</strong> sur les nombres entiers. Un processeur 64 bits <strong>poura traiter plus d’information en même temps</strong> qu’un processeur 32 bits. Dans notre cas <strong>Debian 64-bit</strong> signifie donc que cette version est compatible uniquement avec cette architecture.</li>
+</ul>
+<p>Voir également :</p>
+<ul>
+<li><a href="https://lecrabeinfo.net/32-ou-64-bits-comment-savoir.html#32-bits-vs-64-bits-quelles-differences">32 ou 64 bits ? Comment savoir</a></li>
+<li><a href="https://support.microsoft.com/fr-fr/windows/windows-32-et-64-bits-forum-aux-questions-c6ca9541-8dce-4d48-0415-94a3faa2e13d">Windows 32 et 64 bits : Forum Aux Questions</a></li>
+</ul>
+<h2 data-number="1.2" id="quelle-est-la-configuration-réseau-utilisée-par-défaut"><span class="header-section-number">1.2</span> <strong>Quelle est la configuration réseau utilisée par défaut ?</strong></h2>
+<ul>
+<li>La configuration réseaux par défaut est une interface de type <strong>Intel PRO/1000 MT Desktop (NAT)</strong>, il s’agit d’un modèle de d’interface réseau de la marque Intel réputé.</li>
+<li>L’adresse MAC de notre machine est <strong>08:00:27:e2:f5:a8</strong>, nous l’avons récupéré dans les paramètres de VirtualBox <em>(voir Figure 1)</em> ou en utilisant la commande <code>ip link show</code> <em>(voir Figure 2)</em>.</li>
+</ul>
+<figure>
+<img src="./img/semaine7/17.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Paramètres de la VM</figcaption>
+</figure>
+<figure>
+<img src="./img/semaine7/18.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Affichage de l’adresse MAC</figcaption>
+</figure>
+<h2 data-number="1.3" id="quel-est-le-nom-du-fichier-xml-contenant-la-configuration-de-votre-machine"><span class="header-section-number">1.3</span> <strong>Quel est le nom du fichier XML contenant la configuration de votre machine ?</strong></h2>
+<ul>
+<li><p>Le fichier XML est en réalité le fichier <code>sae203.vbox</code>, avec une extension de fichier différente. Lorsque l’on ouvre celui-ci avec un éditeur de texte tel que <a href="https://vscodium.com/"><strong>Codium</strong></a>, on remarque rapidement la syntaxe XML.</p></li>
+<li><p>XML est un métalangage informatique de balisage générique, sa syntaxe est dite « extensible » car elle permet de définir différents langages avec pour chacun son vocabulaire et sa grammaire, comme XHTML, XSLT, RSS, SVG… Elle est reconnaissable par son usage des chevrons (&lt;, &gt;) encadrant les noms des balises.</p></li>
+</ul>
+<p>Voir également :</p>
+<ul>
+<li><a href="https://developer.mozilla.org/fr/docs/Web/XML/XML_introduction">Extensible Markup Language</a></li>
+</ul>
+<h2 data-number="1.4" id="sauriez-vous-le-modifier-directement-ce-fichier-pour-mettre-2-processeurs-à-votre-machine-faites-le."><span class="header-section-number">1.4</span> <strong>Sauriez-vous le modifier directement ce fichier pour mettre 2 processeurs à votre machine ? Faites-le.</strong></h2>
+<ul>
+<li>On utilise l’éditeur de texte de notre choix (ici <code>nano</code>)</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">nano</span> sae203.vobx</span></code></pre></div>
+<ul>
+<li>On modifie la <strong>balise <code>&lt;CPU&gt;</code> on ajoute <code>count = 2</code></strong>, qui aura pour effet de modifier le nombre de coeurs de notre machine.</li>
+</ul>
+<figure>
+<img src="./img/semaine7/19.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Fichier <strong><em>vbox</em></strong></figcaption>
+</figure>
+<ul>
+<li><p>CPU est un acronyme anglais pour Central Proccessing Unit. Le CPU désigne un processeur ou microprocesseur principal d’un ordinateur, on parle aussi d’unité de traitement.</p></li>
+<li><p>Tandis qu’un coeur (en anglais, core) est un ensemble de circuits capables d’exécuter des programmes de façon autonome. Toutes les fonctionnalités nécessaires à l’exécution d’un programme sont présentes dans ces cœurs : compteur ordinal, registres, unités de calcul, etc.</p></li>
+<li><p>Ainsi au plus notre machine en disposera, au plus elle saura effectuer de calculs/opérations simultanément.</p></li>
+</ul>
+<h2 data-number="1.5" id="quest-ce-quun-fichier-iso-bootable"><span class="header-section-number">1.5</span> <strong>Qu’est-ce qu’un fichier iso bootable ?</strong></h2>
+<ul>
+<li>Un fichier ISO est, en termes simples, un format de fichier numérique reproduisant un CD ou un DVD. L’extension de fichier ISO ne se contente pas de stocker des fichiers et des dossiers : elle contient toutes les informations vitales du système de fichiers concernant la structure du disque.</li>
+<li>On dit d’un disque qu’il est « bootable » lorsqu’il contient les composants logiciels nécessaires pour être <strong>démarré directement au chargement de l’ordinateur</strong>, avant le chargement du système d’exploitation installé sur la machine.</li>
+</ul>
+<p>Voir également :</p>
+<ul>
+<li><a href="https://www.futura-sciences.com/tech/definitions/informatique-bootable-18095/">Bootable : qu’est-ce que c’est ?</a></li>
+<li><a href="https://fr.wikipedia.org/wiki/Image_disque">Image disque (ISO)</a></li>
+</ul>
+<h2 data-number="1.6" id="quest-ce-que-mate-gnome"><span class="header-section-number">1.6</span> <strong>Qu’est-ce que MATE ? GNOME ?</strong></h2>
+<ul>
+<li><p>MATE est un fork de GNOME 2. Il fournit un <strong>environnement de bureau</strong> (apparence de l’ordinateur) attractif et intuitif en se basant sur les métaphores traditionnelles pour GNU/Linux et d’autres systèmes d’exploitation similaires à Unix.</p></li>
+<li><p>On précise qu’un fork signifie qu’un logiciel créé à partir du code source d’un autre.</p></li>
+</ul>
+<p>Voir également :</p>
+<ul>
+<li><a href="https://mate-desktop.org/fr/">Qu’est-ce MATE ?</a></li>
+<li><a href="https://www.gnome.org/">Qu’est-ce que GNOME</a></li>
+<li><a href="https://fr.wikipedia.org/wiki/Environnement_de_bureau">Qu’est-ce qu’un environnement de bureau ?</a></li>
+</ul>
+<h2 data-number="1.7" id="quest-ce-quun-serveur-web"><span class="header-section-number">1.7</span> <strong>Qu’est-ce qu’un serveur web ?</strong></h2>
+<ul>
+<li>Un serveur web est un ordinateur qui <strong>stocke, traite et livre des fichiers de sites web</strong>. Il se compose d’un <strong>côté matériel et d’un côté logiciel</strong>, chacun jouant un rôle distinct dans le traitement des fichiers.</li>
+</ul>
+<p>Voir également :</p>
+<ul>
+<li><a href="https://developer.mozilla.org/fr/docs/Learn/Common_questions/What_is_a_web_server">Qu’est-ce qu’un serveur web ?</a></li>
+</ul>
+<h2 data-number="1.8" id="quest-ce-quun-serveur-ssh"><span class="header-section-number">1.8</span> <strong>Qu’est-ce qu’un serveur ssh ?</strong></h2>
+<ul>
+<li>SSH <em>(acronyme de Secure SHell)</em> est un protocole réseau qui permet aux administrateurs <strong>d’accéder à distance à un ordinateur</strong>, en toute sécurité. SSH désigne également l’ensemble des utilitaires qui mettent en oeuvre le protocole.</li>
+</ul>
+<p>Voir également :</p>
+<ul>
+<li><a href="https://doc.ubuntu-fr.org/ssh">Qu’est-ce qu’un serveur ssh ?</a></li>
+</ul>
+<h2 data-number="1.9" id="quest-ce-quun-serveur-mandataire"><span class="header-section-number">1.9</span> <strong>Qu’est-ce qu’un serveur mandataire ?</strong></h2>
+<ul>
+<li><p>Un serveur mandataire ou proxy (de l’anglais) est un serveur informatique qui a pour fonction de <strong>relayer des requêtes entre un poste client et un serveur</strong>. Les serveurs mandataires sont notamment utilisés pour assurer les fonctions suivantes :</p></li>
+<li><p>mémoire cache</p></li>
+<li><p>la journalisation des requêtes (“logging”)</p></li>
+<li><p>la sécurité du réseau local</p></li>
+<li><p>le filtrage et l’anonymat.</p></li>
+</ul>
+<p>L’utilité des serveurs mandataires est importante, notamment dans le cadre de la sécurisation des systèmes d’information.</p>
+<p>Voir également les différentes définitions d’un serveur mandataire :</p>
+<ul>
+<li><a href="https://www.techno-science.net/definition/3812.html">Définition 1 <em>(techno-science)</em></a></li>
+<li><a href="https://www.futura-sciences.com/tech/definitions/internet-proxy-488/">Définition 2 <em>(futura-science)</em></a></li>
+</ul>
+<h2 data-number="1.10" id="comment-peut-on-savoir-à-quels-groupes-appartient-lutilisateur-user"><span class="header-section-number">1.10</span> <strong>Comment peut-on savoir à quels groupes appartient l’utilisateur “user” ?</strong></h2>
+<ul>
+<li>Nous pouvons visualiser les groupes auxquels appartient un utilisateur en lisant le fichier suivant à la ligne de l’utilisateur <em>“user”</em>:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">cat</span> /etc/group <span class="kw">|</span> <span class="fu">grep</span> user </span></code></pre></div>
+<ul>
+<li>Ou en utilisant directement la commande <code>groups</code></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="fu">groups</span> user</span></code></pre></div>
+<figure>
+<img src="./img/semaine7/20.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Commande <strong><em>groups</em></strong></figcaption>
+</figure>
+<p>Voir également :</p>
+<ul>
+<li><a href="https://www.w3resource.com/linux-system-administration/groups.php">Comment focntionnent les groupes linux ?</a></li>
+</ul>
+<h2 data-number="1.11" id="quel-est-la-version-du-noyau-linux-utilisé-par-votre-vm"><span class="header-section-number">1.11</span> <strong>Quel est la version du noyau Linux utilisé par votre VM ?</strong></h2>
+<ul>
+<li><p>IL est avant tout important de bien saisir ce qu’est un noyau, dit Kernel. Il constitue le cœur du système qui exploite un ordinateur. Il établit la communication entre la partie matérielle et la partie logicielle de l’appareil. C’est ce qui permet à l’utilisateur d’interagir avec la machine.</p></li>
+<li><p>Ainsi pour en connaître la version il suffit d’utiliser la commande <a href="https://debian-facile.org/doc:systeme:uname"><code>uname</code></a>, on a ainsi le numéro de version : “<code>5.10.0-21-amd64</code>”</p></li>
+</ul>
+<figure>
+<img src="./img/semaine7/21.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Commande <strong><em>uname</em></strong></figcaption>
+</figure>
+<ul>
+<li>La première partie avant le <code>-</code> nous indiquant le numéro de version <code>5.10.0-21</code>, et la seconde notre architecture <code>amd64</code>.</li>
+</ul>
+<p>Voir également :</p>
+<ul>
+<li><a href="https://www.malekal.com/comment-connaitre-la-version-du-noyau-linux/">Comment voir la version du noyau linux ?</a></li>
+</ul>
+<h2 data-number="1.12" id="à-quoi-servent-les-suppléments-invités-donner-2-principales-raisons-de-les-installer."><span class="header-section-number">1.12</span> <strong>À quoi servent les suppléments invités ? Donner 2 principales raisons de les installer.</strong></h2>
+<ul>
+<li><p>Après avoir <a href="https://www.malekal.com/virtualbox-comment-creer-une-machine-virtuelle/">crée une machine virtuelle et installer l’OS sur Virtualbox</a>, il convient d’installer les Virtualbox VirtualBox additions invités. (Guest Additions).</p></li>
+<li><p>Cela permet <strong>d’améliorer les performances et intégrations entre la machine hôte et la machine invité</strong> mais aussi apporter de nouvelles fonctionnalités.</p></li>
+<li><p>Par exemple, vous pouvez <a href="https://www.malekal.com/virtualbox-copier-coller-entre-la-vm-invite-et-machine-hote/">activer le copier/coller entre la machine hôte et invité</a>, ou encore profiter d’une résolution d’écran adaptative/automatique.</p></li>
+</ul>
+<p>Voir également :</p>
+<ul>
+<li><a href="https://lecrabeinfo.net/virtualbox-installer-les-additions-invite-guest-additions.html">Que sont les suppléments invités ?</a></li>
+</ul>
+<h2 data-number="1.13" id="à-quoi-sert-la-commande-mount-dans-notre-cas-de-figure-et-dans-le-cas-général"><span class="header-section-number">1.13</span> <strong>À quoi sert la commande mount (dans notre cas de figure et dans le cas général) ?</strong></h2>
+<ul>
+<li>La commande <code>mount</code> permet de <strong>demander au système d’exploitation de rendre un système de fichiers accessible</strong>, à un emplacement spécifié (le point de montage).</li>
+</ul>
+<p>Voir également :</p>
+<ul>
+<li><a href="https://fr.theastrologypage.com/mount">Qu’est ce que le mount ?</a></li>
+</ul>
+<h2 data-number="1.14" id="compte-rendu-de-linstallation-machine-virtuel"><span class="header-section-number">1.14</span> <strong>Compte rendu de l’installation machine virtuel</strong></h2>
+<h3 data-number="1.14.1" id="création-de-la-machine-virtuelle"><span class="header-section-number">1.14.1</span> <strong>Création de la machine virtuelle</strong></h3>
+<ul>
+<li>Condition préalable : extension pack (VBoxGuestAddition.iso) présent sur la machine hôte</li>
+<li>Création de la machine :
+<ul>
+<li>Nom de la machine dans VirtualBox : sae203</li>
+<li>Dossier de la machine : <code>/usr/local/virtual_machine/infoetu/login</code> avec notre login personnel.</li>
+<li>Type : Linux</li>
+<li>Version : Debian ou Debian 11 en <a href="#Que-signifie-“64-bit”-dans-“Debian-64-bit”-?">64-bit</a></li>
+</ul></li>
+</ul>
+<figure>
+<img src="./img/semaine7/01.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Création de la machine virtuelle</figcaption>
+</figure>
+<ul>
+<li>Initialisation de la mémoire vive à 2048 Mo</li>
+</ul>
+<figure>
+<img src="./img/semaine7/02.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Allocation de la mémoire</figcaption>
+</figure>
+<ul>
+<li>20 Go de disque dur sur une seule partition</li>
+</ul>
+<figure>
+<img src="./img/semaine7/03.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Allocation du stockage</figcaption>
+</figure>
+<h3 data-number="1.14.2" id="installation-du-systeme-dexploitation-debian-11"><span class="header-section-number">1.14.2</span> <strong>Installation du systeme d’exploitation Debian 11</strong></h3>
+<ul>
+<li><p>Insérer le fichier <a href="#Qu’est-ce-qu’un-fichier-iso-bootable-?">iso bootable</a> pour l’installation dans le lecteur cd de la machine</p></li>
+<li><p>Pays/langue : France</p></li>
+</ul>
+<figure>
+<img src="./img/semaine7/04.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Choix de la langue</figcaption>
+</figure>
+<ul>
+<li>Nom de la machine : <code>serveur</code></li>
+</ul>
+<figure>
+<img src="./img/semaine7/07.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Nom de la machine</figcaption>
+</figure>
+<ul>
+<li><p>Compte administrateur : <code>root:root</code></p></li>
+<li><p>Un Compte utilisateur : <code>User:user</code></p></li>
+<li><p>Partition : 1 seule partition recouvrant le disque entier suffit</p></li>
+</ul>
+<figure>
+<img src="./img/semaine7/11.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Partitionnement du disque</figcaption>
+</figure>
+<ul>
+<li>Miroir : http://debian.polytech-lille.fr
+<ul>
+<li>Les miroirs sont des serveurs, répartis dans le monde, qui répliquent l’information des serveurs Debian originaux et permettent de répartir la charge et de raccourcir le temps d’accès à l’information. Il existe, une vingtaine de miroirs en France.</li>
+</ul></li>
+</ul>
+<figure>
+<img src="./img/semaine7/12.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Outil de gestion des paquets</figcaption>
+</figure>
+<ul>
+<li><a href="#Qu’est-ce-qu’un-serveur-mandataire-?">Proxy</a> : http://cache.univ-lille.fr:3128</li>
+</ul>
+<figure>
+<img src="./img/semaine7/13.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Serveur mandataire</figcaption>
+</figure>
+<ul>
+<li>Sélection des logiciels de démarrage :
+<ul>
+<li>environnement de bureau Debian</li>
+<li>MATE</li>
+<li>serveur web</li>
+<li>serveur ssh<br />
+</li>
+<li>utilitaire usuels du système</li>
+</ul></li>
+</ul>
+<figure>
+<img src="./img/semaine7/14.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Logiciels à installer</figcaption>
+</figure>
+<ul>
+<li>Après la fin de l’installation de la VM nous avons dû donner les droits sudo à notres user grâce à l’utilisateur root et à ces commandes :</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="ex">usermod</span> -aG sudo [login]</span></code></pre></div>
+<ul>
+<li><p>Ensuite nous avons dû installer les suppléments invités et pour cela nous avons été dans : Périphériques › Insérer l’illustration CD des additions invités…</p></li>
+<li><p>Et enfin nous avons utilisé ces commandes :</p>
+<ul>
+<li>Monter le CD sudo : mount /dev/cdrom /mnt</li>
+<li>Installer les suppléments : sudo /mnt/VBoxLinuxAdditions.run</li>
+</ul></li>
+</ul>
+<figure>
+<img src="./img/semaine7/16.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Montage du disque + installation des suppléments</figcaption>
+</figure>
+<h1 data-number="2" id="semaine-9"><span class="header-section-number">2</span> <strong>Semaine 9</strong></h1>
+<h2 data-number="2.1" id="quest-ce-que-le-projet-debian-doù-vient-le-nom-debian"><span class="header-section-number">2.1</span> <strong>Qu’est-ce que le Projet Debian ? D’où vient le nom Debian ?</strong></h2>
+<p>Le <strong>projet Debian</strong> est un projet ayant pour but de créer un système d’exploitation exclusivement constitué de logiciels libres. Il est lancé en 1993 par <strong>Ian Murdock</strong>. Le nom <em>“Debian”</em> tire son origine des prénoms du créateur de Debian, <em>Ian Murdock</em>, et de son épouse, <em>Debra</em>.</p>
+<figure>
+<img src="img/semaine9/ianmurdock.jpg" id="id" class="class" width="250" alt="" /><figcaption>Ian Murdock</figcaption>
+</figure>
+<ul>
+<li><a href="https://www.debian.org/doc/manuals/project-history/intro.fr.html">Voir la présentation du projet Debian</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ian_Murdock">Qui est Ian Murdock ?</a></li>
+</ul>
+<h2 data-number="2.2" id="il-existe-3-durées-de-prise-en-charge-support-de-ces-versions-la-durée-minimale-la-durée-en-support-long-terme-lts-et-la-durée-en-support-long-terme-étendue-elts.-quelle-sont-les-durées-de-ces-prises-en-charge"><span class="header-section-number">2.2</span> <strong>Il existe 3 durées de prise en charge (support) de ces versions : la durée minimale, la durée en support long terme (LTS) et la durée en support long terme étendue (ELTS). Quelle sont les durées de ces prises en charge ?</strong></h2>
+<ul>
+<li><strong>LTS :</strong> 5 ans <em>(en comptant le minimum)</em>
+<ul>
+<li>est un projet pour étendre la durée de vie de toutes les versions stables de Debian à (au moins) 5 ans. Debian LTS n’est pas gérée par l’équipe en charge de la sécurité de Debian, mais par un groupe distinct de bénévoles et sociétés intéressés pour en faire un succès.</li>
+</ul></li>
+<li><strong>ELTS :</strong> 10 ans <em>(5 ans en plus après le LTS)</em>
+<ul>
+<li>est une offre commerciale pour prolonger la durée de vie des versions de Debian à 10 ans</li>
+<li><strong>Minimum :</strong> 3 ans</li>
+</ul></li>
+</ul>
+<p>Ces durées ne sont pas fixes et représentent le maximum.</p>
+<ul>
+<li><a href="https://wiki.debian.org/fr/LTS">Qu’est-ce que LTS ?</a></li>
+</ul>
+<h2 data-number="2.3" id="pendant-combien-de-temps-les-mises-à-jour-de-sécurité-seront-elles-fournies"><span class="header-section-number">2.3</span> <strong>Pendant combien de temps les mises à jour de sécurité seront-elles fournies ?</strong></h2>
+<p>Les mises à jours de sécurité sont fournies pour une version si celle-ci est prise en charge.</p>
+<ul>
+<li><a href="https://debian-facile.org/viewtopic.php?id=30545">Voir l’explication sur les différentes versions</a></li>
+</ul>
+<h2 data-number="2.4" id="combien-de-version-au-minimum-sont-activement-maintenues-par-debian-donnez-leur-nom-générique-les-types-de-distribution."><span class="header-section-number">2.4</span> <strong>Combien de version au minimum sont activement maintenues par Debian ? Donn+ez leur nom générique (= les types de distribution).</strong></h2>
+<ul>
+<li><p>Debian 11 : bullseye (version stable)</p></li>
+<li><p>Debian 10: buster (version oldstable)</p></li>
+<li><p>Debian 9: stretch (version oldoldstable prise en charge LTS)</p></li>
+<li><p>Debian 8: jessie (version archivée avec prise en charge ELTS)</p></li>
+<li><p><a href="https://www.debian.org/releases/index.fr.html">Voir le guide des versions sur le site officiel de Debian</a></p></li>
+</ul>
+<h2 data-number="2.5" id="chaque-distribution-majeur-possède-un-nom-de-code-différent.-par-exemple-la-version-majeur-actuelle-debian-11-se-nomme-bullseye.-doù-viennent-les-noms-de-code-données-aux-distributions"><span class="header-section-number">2.5</span> <strong>Chaque distribution majeur possède un nom de code différent. Par exemple, la version majeur actuelle (Debian 11) se nomme Bullseye. D’où viennent les noms de code données aux distributions ?</strong></h2>
+<ul>
+<li>Fait insolite, <strong>Debian</strong> tire ses noms de distributions de personnages des célèbres films <a href="https://fr.wikipedia.org/wiki/Toy_Story"><strong>Toy Story</strong></a></li>
+</ul>
+<figure>
+<img src="img/semaine9/bullseye.png" id="id" class="class" height="150" alt="" /><figcaption>Debian 11 <strong><em>Bullseye</em></strong></figcaption>
+</figure>
+<ul>
+<li><a href="https://wiki.debian.org/fr/ToyStory">Voir les références de Debian à ToyStory</a></li>
+</ul>
+<h2 data-number="2.6" id="lun-des-atouts-de-debian-fut-le-nombre-darchitecture-officiellement-prises-en-charge.-combien-et-lesquelles-sont-prises-en-charge-par-la-version-bullseye"><span class="header-section-number">2.6</span> <strong>L’un des atouts de Debian fut le nombre d’architecture officiellement prises en charge. Combien et lesquelles sont prises en charge par la version Bullseye ?</strong></h2>
+<ul>
+<li>Si l’on en croit la page d’installation officielle de Debian, les architectures prises en charge sont au total de 9:
+<ul>
+<li><strong>amd64* :</strong> l’architecture des premiers microprocesseurs 64 bits de la société Advanced Micro Devices</li>
+<li><strong>arm64* :</strong> architecture microélectronique développée par la société ARM. C’est la première architecture ARM 64 bits.</li>
+<li><strong>armel</strong></li>
+<li><strong>armhf</strong></li>
+<li><strong>i386 :</strong> <strong>Intel 80386</strong>, est un microprocesseur 32 bits CISC fabriqué par Intel utilisé dans de nombreux ordinateurs personnels de 1986 à 1994.</li>
+<li><strong>mips :</strong> architecture de processeur de type <a href="https://fr.wikipedia.org/wiki/Reduced_instruction_set_computer">Reduced instruction set computer (RISC)</a> développée par la société <a href="https://fr.wikipedia.org/wiki/MIPS_Technologies">MIPS Technologies</a> <em>(alors appelée MIPS Computer Systems)</em>.</li>
+<li><strong>mipsel</strong></li>
+<li><strong>ppc64el :</strong> ppc64le est un pur mode <a href="https://en.wikipedia.org/wiki/Little-endian">little-endian</a> qui a été introduit avec le <a href="https://en.wikipedia.org/wiki/POWER8">POWER8</a> comme cible principale des technologies fournies par la <a href="https://en.wikipedia.org/wiki/OpenPOWER_Foundation">Fondation OpenPOWER</a> , visant à permettre le portage du logiciel basé sur Linux <a href="https://en.wikipedia.org/wiki/X86">x86</a> avec un minimum d’effort.</li>
+<li><strong>s390x</strong></li>
+</ul></li>
+</ul>
+<p><em>* Les plus répandus</em></p>
+<p>Voir également :</p>
+<ul>
+<li><a href="https://www.debian.org/releases/jessie/i386/ch02s01.html.fr">Voir également la liste des architectures officiellement compatibles</a></li>
+<li><a href="https://linuxhint.com/about-arm64-armel-armhf/">Différences entre ARM64, ARMel et ARMhf</a></li>
+</ul>
+<h2 data-number="2.7" id="première-version-avec-un-nom-de-code-date-numéro-de-version"><span class="header-section-number">2.7</span> <strong>Première version avec un nom de code (date, numéro de version…)</strong></h2>
+<ul>
+<li>La première version <a href="https://wiki.debian.org/fr/DebianBuzz"><strong>Debian “Buzz”</strong></a> qui est la version <code>1.1</code>, qui est sorti le <strong><em>17 juin 1996</em></strong>, contenait <strong><em>474 paquets</em></strong>.</li>
+</ul>
+<h2 data-number="2.8" id="dernière-nom-de-code-attribué-dernier-nom-à-ce-jour-date-version"><span class="header-section-number">2.8</span> <strong>Dernière nom de code attribué (dernier nom à ce jour, date, version…)</strong></h2>
+<ul>
+<li>La dernière version de debian publiée est <a href="https://wiki.debian.org/fr/DebianBullseye"><strong>Debian “Bullseye”</strong></a> qui est la version <code>11</code> qui est la version <strong>actuelle</strong> et <strong>stable</strong>. Elle a été annoncée le <em>6 juillet 2016</em> et publiée le <em>6 juillet 2019</em>. Debian est en train de développer une nouvelle version avec comme nom de code <a href="https://wiki.debian.org/fr/DebianBookworm"><strong>“Bookworm”</strong></a> mais la date n’a pas encore été dévoilée, cette version est encore en phase de test.</li>
+</ul>
+<figure>
+<img src="img/semaine9/bookworm.png" id="id" class="class" height="150" alt="" /><figcaption>Bookworm</figcaption>
+</figure>
+<h2 data-number="2.9" id="installation-préconfigurée-de-debian-11.6"><span class="header-section-number">2.9</span> <strong>Installation préconfigurée de <a href="https://debian.org">Debian 11.6</a></strong></h2>
+<h3 data-number="2.9.1" id="préparation-de-la-machine-virtuelle"><span class="header-section-number">2.9.1</span> <strong>Préparation de la machine virtuelle</strong></h3>
+<p>On commence par créer la machine virtuelle sur <a href="https://virtualbox.org">VirtualBox</a>, de la même manière qu’à la semaine précédente.</p>
+<p>Création de la machine avec le nom sae203b, de type linux debian 64-bit, dans le fichier /ysr/local/virtual_machine/infoetu/login, 2048 Mo de RAM et 20 GO de disque dur.</p>
+<figure>
+<img src="img/semaine9/01.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Création de la machine virtuelle 1.1</figcaption>
+</figure>
+<figure>
+<img src="img/semaine9/02.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Création de la machine virtuelle 1.2</figcaption>
+</figure>
+<figure>
+<img src="img/semaine9/03.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Création de la machine virtuelle 1.3</figcaption>
+</figure>
+<figure>
+<img src="img/semaine9/04.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Création de la machine virtuelle 1.4</figcaption>
+</figure>
+<p>décompression du fichier autoinstall.zip au même endroit que la VM et faire la commande :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="fu">sed</span> -i -E <span class="st">&quot;s/(--iprt-iso-maker-file-marker-bourne-sh).*$/</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="st">\1=</span><span class="va">$(</span><span class="fu">cat</span> /proc/sys/kernel/random/uuid<span class="va">)</span><span class="st">/&quot;</span></span></code></pre></div>
+<p>S203-Debian11.viso au même endroit pour remplacer la chaîne @<span class="citation" data-cites="UUID">@UUID</span>@@ par un identifiant unique universel</p>
+<figure>
+<img src="img/semaine9/05.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>décompression du ficher autoinstall.zip</figcaption>
+</figure>
+<p>mise en place du fichier S203_Debian11.viso dans le lecteur optique de la machine virtuelle</p>
+<figure>
+<img src="img/semaine9/06.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>mise en place du fichier S203_Debian11.viso</figcaption>
+</figure>
+<p>démarrage de l’auto installation et test des ajouts invités</p>
+<figure>
+<img src="img/semaine9/07.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>démarrage auto install 1.1</figcaption>
+</figure>
+<figure>
+<img src="img/semaine9/08.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>démarrage auto install 1.2</figcaption>
+</figure>
+<p><strong>Ajout des droits sudo</strong></p>
+<p>Pour mettre les droits sudo à l’user, mettre MATE comme bureau et installer les paquets il faut :</p>
+<ul>
+<li><p>ajouter sudo aux groupes du user dans la partie Utilisateur Standard : <code>d-i passwd/user-default-groups string audio cdrom video sudo</code></p></li>
+<li><p>ajouter tous les paquets à installer dans la partie Packages, Mirrors, Image : <code>d-i pkgsel/include string sudo git sqlite3 curl bash-completion neofetch</code></p></li>
+<li><p>ajouter MATE comme style de bureau de base dans la partie installation de meta-paquetages : <code>tasksel tasksel/first multiselect standard ssh-server mate-desktop desktop</code></p></li>
+</ul>
+<figure>
+<img src="img/semaine9/09.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Ajout droit sudo</figcaption>
+</figure>
+<p>relancer l’installation et mettre 2 CPU pour que la machine puisse se lancer</p>
+<p><strong>L’installation est désormais terminée et prête à utilisation !</strong></p>
+<h1 data-number="3" id="semaine-10-11"><span class="header-section-number">3</span> <strong>Semaine 10 &amp; 11</strong></h1>
+<h2 data-number="3.1" id="quest-ce-que-le-logiciel-git-gui-comment-se-lance-t-il"><span class="header-section-number">3.1</span> <strong>Qu’est-ce que le logiciel git-gui ? Comment se lance-t-il ?</strong></h2>
+<p><code>Git-gui</code> dispose des mêmes fonctionnalités que Git, mais ayant pour avantage de posséder une interface graphique. On peut donc créer un nouveau dépôt Git en local, en indiquant le nom de celui-ci, cela est équivalent à la commande :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="fu">git</span> init [mon_repo]</span></code></pre></div>
+<p>Git-gui permet aussi de cloner un dépôt distant en local en indiquant le chemin vers la source et le dossier de destination, ce qui équivaut à :</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="fu">git</span> clone [url_du_dépôt_source] [mon_dossier_local]</span></code></pre></div>
+<p>Il permet d’ouvrir le dépôt en local spécifié avec l’outil Git Gui, lister les derniers dépôts ouverts, menu dans lequel vous retrouverez l’ensemble des actions que nous venons de voir.</p>
+<p>Il se lance grâce à ces commandes :</p>
+<p>Pour l’installer :</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="fu">sudo</span> apt-get install git-gui</span></code></pre></div>
+<p>Pour le lancer :</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="fu">git</span> gui</span></code></pre></div>
+<figure>
+<img src="img/semaine10/git-gui.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Interface graphique pour Git</figcaption>
+</figure>
+<h2 data-number="3.2" id="quest-ce-que-gitk"><span class="header-section-number">3.2</span> <strong>Qu’est-ce que gitk ?</strong></h2>
+<p><a href="https://www.atlassian.com/fr/git/tutorials/gitk#:~:text=gitk%20est%20un%20navigateur%20de,tous%20les%20syst%C3%A8mes%20d&#39;exploitation.">Gitk</a> est un navigateur de dépôt graphique, le premier de son genre. Il peut être considéré comme un encapsuleur graphique pour <strong><code>git log</code></strong>. Il permet d’explorer et de visualiser l’historique d’un dépôt. Il est écrit en <a href="https://fr.wikipedia.org/wiki/Tool_Command_Language">tcl/tk</a>, ce qui le rend portable sur tous les systèmes d’exploitation. gitk est mis à jour par Paul Mackerras en tant que projet indépendant et distinct du noyau Git. Des versions stables sont distribuées dans le cadre de la suite Git pour faciliter la tâche des utilisateurs finaux. Gitk peut être un outil d’apprentissage utile pour les nouveaux venus dans Git.</p>
+<p>On le lance avec cette commande : <strong><code>gitk</code></strong>.</p>
+<figure>
+<img src="img/semaine10/gitk.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Navigateur gitk</figcaption>
+</figure>
+<h2 data-number="3.3" id="quelle-sera-la-ligne-de-commande-git-pour-utiliser-par-défaut-le-proxy-de-luniversité-sur-tous-vos-projets-git"><span class="header-section-number">3.3</span> <strong>Quelle sera la ligne de commande git pour utiliser par défaut le proxy de l’université sur tous vos projets git ?</strong></h2>
+<p>La ligne de commande permettant de configurer de manière permanente un proxy à Git est la suivante :</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="fu">git</span> config --global http.proxy http://notreproxy.fr:notreport</span></code></pre></div>
+<h2 data-number="3.4" id="quest-ce-que-gitea"><span class="header-section-number">3.4</span> <strong>Qu’est-ce que Gitea ?</strong></h2>
+<p><a href="https://gitea.io/en-us/">Gitea</a> est une forge logicielle libre, développée en <a href="https://fr.wikipedia.org/wiki/Go_(langage)">Golang</a> sous <a href="https://fr.wikipedia.org/wiki/Licence_MIT">licence MIT</a>, pour l’hébergement de développement logiciel, basé sur le logiciel de gestion de versions Git pour la gestion du code source, comportant un système de suivi des bugs, un wiki, ainsi que des outils pour la relecture de code.</p>
+<p>Pour information, <strong>Go</strong> est un langage de programmation compilé et concurrent inspiré de <strong>C</strong> et <strong>Pascal</strong>. Ce langage a été développé par Google à partir d’un concept initial de Robert Griesemer, Rob Pike et Ken Thompson.</p>
+<p>De plus la licence MIT est une licence de logiciel pour logiciels libres et open source, qui donne à toute personne recevant le logiciel le droit illimité de l’utiliser, le copier, le modifier, le fusionner, le publier, le distribuer, le vendre et de changer sa licence. La seule obligation est de mettre le nom des auteurs avec la notice de copyright.</p>
+<p>Comme logiciel similaire à gitea nous pouvons retrouver <a href="https://desktop.github.com/">GitHub Desktop</a> ou encore <a href="https://www.ibm.com/products/rational-clearcase">IBM Rational ClearCase</a>.</p>
+<h2 data-number="3.5" id="installation-de-gitea"><span class="header-section-number">3.5</span> <strong>Installation de Gitea</strong></h2>
+<p>configuration des paramètres git :</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="fu">git</span> config --global user.name <span class="st">&quot;Prénom Nom&quot;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="fu">git</span> config --global user.email <span class="st">&quot;votre@email&quot;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a><span class="fu">git</span> config --global init.defaultBranch <span class="st">&quot;master&quot;</span></span></code></pre></div>
+<figure>
+<img src="img/semaine10/10.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>configuration des paramètres git</figcaption>
+</figure>
+<p><strong>installation de git-gui</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="fu">sudo</span> apt-get install git-gui</span></code></pre></div>
+<figure>
+<img src="img/semaine10/11.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>installation de git-gui</figcaption>
+</figure>
+<p>ensuiteil faut rediriger les messages arrivant sur le port 3000 de la machine physique vers le port 3000 de la machine virtuelle pour cela configurer la machine virtuelle</p>
+<figure>
+<img src="img/semaine10/12.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>port 3000</figcaption>
+</figure>
+<p><strong>installation de gitea 1.18.5</strong></p>
+<p><code>wget -O gitea https://dl.gitea.com/gitea/1.18.5/gitea-1.18.5-linux-amd64</code> : installation de gitea dupuis un dépot sur internet ne pas oublier les lignes :</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="bu">export</span> <span class="va">http_proxy=</span>http://cache.univ-lille.fr:3128</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a><span class="bu">export</span> <span class="va">https_proxy=$http_proxy</span></span></code></pre></div>
+<p>afin d’être connécté à internet</p>
+<figure>
+<img src="img/semaine10/13.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>installation de gitea 1.18.5</figcaption>
+</figure>
+<p><code>chmod +x gitea</code> pour ajouter les droits d’éxecution sur le dossier gitea</p>
+<p><code>git --version</code> pour vérifier si on est bien sur git 2.0 au minimum</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="fu">sudo</span> adduser --system --shell /bin/bash --gecos <span class="st">&#39;Git Version Control&#39;</span> --group </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a><span class="ex">--disabled-password</span> --home /home/git git pour créer l<span class="st">&#39;utilisateur git pour exécuter gitea</span></span></code></pre></div>
+<figure>
+<img src="img/semaine10/14.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Git Version Control</figcaption>
+</figure>
+<p>Pour créer les fichiers nécessaires à gitea avec les droits et propriétaires :</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="fu">sudo</span> mkdir -p /var/lib/gitea/<span class="dt">{custom,data,log}</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="fu">sudo</span> chown -R git:git /var/lib/gitea/</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="fu">sudo</span> chmod -R 750 /var/lib/gitea/</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a><span class="fu">sudo</span> mkdir /etc/gitea</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a><span class="fu">sudo</span> chown root:git /etc/gitea</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a><span class="fu">sudo</span> chmod 770 /etc/gitea</span></code></pre></div>
+<figure>
+<img src="img/semaine10/15.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>création les fichiers nécessaires à gitea</figcaption>
+</figure>
+<p>pour définir une variable d’environnement pour que gitea utilise le bon répertoire de travail :</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="bu">export</span> <span class="va">GITEA_WORK_DIR=</span>/var/lib/gitea/ </span></code></pre></div>
+<figure>
+<img src="img/semaine10/16.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>définition d’une variable d’environnement</figcaption>
+</figure>
+<p>facultatif avec linux</p>
+<p>copie du binaire de gitea au bon endroit :</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="fu">sudo</span> cp gitea /usr/local/bin/gitea</span></code></pre></div>
+<figure>
+<img src="img/semaine10/17.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>copie du binaire de gitea</figcaption>
+</figure>
+<p>Lancer gitea automatiquement :</p>
+<p>créer un fichier <code>/etc/systemd/system/gitea.service</code> et coller le contenu de cette page dedans : https://github.com/go-gitea/gitea/blob/main/contrib/systemd/gitea.service</p>
+<p>pour lancer gitea faire :</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="fu">sudo</span> systemctl enable gitea --now</span></code></pre></div>
+<p>mettre cette URL dans un moteur de recherche (connexion avec gitea qui utilise le port 3000):</p>
+<p>http://localhost:3000</p>
+<p>paramétrer gitea avec la BDD SQLite3, user gitea password gitea et mail git@localhost</p>
+<p>pour finir faire les commandes :</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="fu">sudo</span> chmod 750 /etc/gitea</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a><span class="fu">sudo</span> chmod 640 /etc/gitea/app.ini</span></code></pre></div>
+<p>afin de protéger les fichiers <code>/etc/gitea</code> et <code>/etc/gitea/app.ini</code></p>
+<figure>
+<img src="img/semaine10/18.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>Gitea</figcaption>
+</figure>
+<p><strong>Mise à jour</strong></p>
+<p>Pour cela, nous devons arrêter le service gitea, remplacer le binaire gitea de la version actuelle par la nouvelle version, et relancer le service. Pour faire ceci sans reconfigurer soi-même, gitea a mit en place un script bash (<a href="https://github.com/go-gitea/gitea/blob/main/contrib/upgrade.sh">upgrade.sh</a>) pour automatiser tout cela, on précise uniquement la version souhaité avec l’option <code>-v</code></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="fu">sudo</span> ./upgrade.sh -v 1.19</span></code></pre></div>
+<p>Nous allons maintenant ajouter quelques repos pour tester les fonctionnalités et le bon fonctionnement de Gitea. Depuis l’interface Gitea nous pouvons créer et enrichir directement le repos (comem vous pouvez le voir dans le screen avec le repos example). Mais également depuis la commande git:</p>
+<p>Voici un exemple avec le repos ‘dev-oo’ dédié aux tp de dev poo et qualité dev crée par chaque étudiant dans son propre compte Gitlab</p>
+<p>Tout d’abord on crée le repos ‘dev-oo’ depuis l’interface de Gitea, puis on clone le dépot distant provenant de Gitlab, on change son origine pour lui attribuer celui de Gitea et ainsi commit puis push toutes les fichiers sur le repos ‘dev-oo’ dans Gitea.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="fu">git</span> clone https://gitlab.univ-lille.fr/[login_etudiant]/dev-oo <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> dev-oo</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a><span class="fu">git</span> remote remove origin</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a><span class="fu">git</span> remote add origin http://localhost:3000/gitea/dev-oo</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a><span class="co"># La branche sur le repos git est main par défaut </span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a><span class="co">#contrairement au paramétrage des préliminaires</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true"></a><span class="fu">git</span> branch -m main master</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true"></a><span class="co"># user: gitea, password: gitea</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true"></a><span class="fu">git</span> push origin master</span></code></pre></div>
+<p>Également, pour les rapports de Saé 2.03, nous initialisons un repos git et on fait un premier commit distant avec tous les rapports:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a><span class="fu">git</span> init</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a><span class="fu">git</span> remote add origin http://localhost:3000/gitea/s2.03</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a><span class="fu">git</span> add -A <span class="kw">&amp;&amp;</span> <span class="fu">git</span> commit -m <span class="st">&quot;Initial commit&quot;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true"></a><span class="fu">git</span> push origin master</span></code></pre></div>
+<figure>
+<img src="img/semaine10/19.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>ajout gitea 1.1</figcaption>
+</figure>
+<figure>
+<img src="img/semaine10/20.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>ajout gitea 1.2</figcaption>
+</figure>
+<figure>
+<img src="img/semaine10/21.png" id="id" class="class" data-length="300" width="380" alt="" /><figcaption>ajout gitea 1.3</figcaption>
+</figure>
+</body>
+</html>
